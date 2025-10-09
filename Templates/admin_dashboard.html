@@ -20,7 +20,36 @@
 						class="E-create">Edit</a>
 						<a href="{{url_for('remove_category',curr_login_id=data.curr_login_id,category_id=category.id)}}" 
 						class="R-create">Remove</a>
+						<a href="{{url_for('create_product',curr_login_id=data.curr_login_id,category_id=category.id)}}" 
+						class="R-create">Add-Product</a>
 					</div>
+					<table class="prod-table">
+						<tr>
+							<th>Product</th>
+							<th>Price</th>
+							<th>Unit</th>
+							<th>Quantity</th>
+							<th>Mf_date</th>
+							<th>Expiry Date</th>
+							<th>Actions</th>
+						</tr>
+						{%for product in category.products%}
+						<tr>
+							<td class="prod-name">{{product.name}}</td>
+							<td class="prod-pice">{{product.price}}</td>	
+							<td class="prod-name">{{product.unit}}</td>	
+							<td class="prod-name">{{product.quantity}}</td>	
+							<td class="prod-name">{{product.mf_date}}</td>	
+							<td class="prod-name">{{product.expiry_date}}</td>	
+							<td>
+								<a href="{{url_for('edit_product',curr_login_id=data.curr_login_id,product_id=product.id)}}" 
+								class="E-create">Edit</a>
+								<a href="{{url_for('remove_product',curr_login_id=data.curr_login_id,product_id=product.id)}}" 
+								class="R-create">Remove</a>
+							</td>
+						</tr>
+						{%endfor%}
+					</table>			
 				</div>
 			</div>
 		</div>

@@ -29,7 +29,7 @@ class Product(db.Model):
     expiry_date = db.Column(db.Date, nullable=False)
     sold_quantity = db.Column(db.Integer, default=0, nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey("category.id"), nullable=False)
-  
+
 
 
 class Cart(db.Model):
